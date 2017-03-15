@@ -1,6 +1,6 @@
-# website-starter
+# burwell-sources
 
-A boilerplate for websites with React/Redux
+A simple page to show which maps have been ingested into Macrostrat
 
 ## Getting started
 
