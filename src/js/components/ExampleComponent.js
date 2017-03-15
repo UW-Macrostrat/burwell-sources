@@ -58,7 +58,7 @@ class ExampleComponent extends Component {
                 </table>
               </div>
               <div className='col s4'>
-                <SourceMap geom={d.geometry} sourceId={d.properties.source_id}/>
+                <SourceMap feature={d}/>
               </div>
             </div>
           )

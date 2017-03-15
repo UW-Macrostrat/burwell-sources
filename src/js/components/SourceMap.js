@@ -6,8 +6,13 @@ class SourceMap extends Component {
   }
 
   componentDidMount() {
-    console.log('ready to draw', this.props.sourceId)
-    var map = this.map = L.map(`map-${this.props.sourceId}`, {
+    var zoomMap = {
+      'tiny': 1,
+      'small': 5,
+      'medium': 7,
+      'large': 10
+    }
+    var map = this.map = L.map(`map-${this.props.feature.properties.source_id}`, {
       attributionControl: false,
       minZoom: 0,
       zoomControl: false
@@ -19,28 +24,32 @@ class SourceMap extends Component {
 
     var bbox = L.geoJson({
       'type': 'FeatureCollection',
-      'features': [ {
-        'type': 'Feature',
-        'properties': {},
-        'geometry': this.props.geom
-      } ]
+      'features': [ this.props.feature ]
+    }, {
+      onEachFeature: (feature, layer) => {
+        layer.on('click', (e) => {
+          var centerLng = (this.props.feature.geometry.coordinates[0][0][0] + this.props.feature.geometry.coordinates[0][2][0]) / 2
+          var centerLat = (this.props.feature.geometry.coordinates[0][0][1] + this.props.feature.geometry.coordinates[0][2][1]) / 2
+          window.location = `https://dev.macrostrat.org/burwell#${zoomMap[this.props.feature.properties.scale]}/${centerLat}/${centerLng}`
+        })
+      }
     }).addTo(map)
+
 
     map.fitBounds(bbox.getBounds())
   }
 
   render() {
-    const { geom, sourceId } = this.props
+    const { feature } = this.props
 
     return (
-      <div className='map' id={'map-' + sourceId}></div>
+      <div className='map' id={'map-' + feature.properties.source_id}></div>
     )
   }
 }
 
 SourceMap.propTypes = {
-  geom: PropTypes.object.isRequired,
-  sourceId: PropTypes.number.isRequired
+  feature: PropTypes.object.isRequired
 }
 
 export default SourceMap
