@@ -1,0 +1,17 @@
+/* Styles go here */
+body {
+  color: #333;
+}
+td {
+  padding: 5px;
+}
+.source-row {
+  padding-bottom: 25px;
+}
+.hide {
+  display: none;
+}
+.map {
+  height: 350px;
+  margin-top: 15px;
+}
