@@ -18,14 +18,23 @@ class SourceMap extends Component {
       zoomControl: false
     }).setView([40.8, -94.1], 3);
 
-    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
-      zIndex: 1
+    // L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
+    //   zIndex: 1
+    // }).addTo(map)
+
+    L.tileLayer("https://{s}.tiles.mapbox.com/v3/jczaplewski.j751k57j/{z}/{x}/{y}.png", {
+      attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a>"
     }).addTo(map)
 
     var bbox = L.geoJson({
       'type': 'FeatureCollection',
       'features': [ this.props.feature ]
     }, {
+      style: {
+        color: '#333', //stroke color
+        weight: 2, //stroke width
+        fillColor: '#aaaaaa'
+      },
       onEachFeature: (feature, layer) => {
         layer.on('click', (e) => {
           var centerLng = (this.props.feature.geometry.coordinates[0][0][0] + this.props.feature.geometry.coordinates[0][2][0]) / 2

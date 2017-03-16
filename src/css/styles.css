@@ -15,3 +15,22 @@ td {
   height: 350px;
   margin-top: 15px;
 }
+.title {
+  font-weight: 200;
+}
+.scale-badge {
+  margin-left: 0 !important;
+  color: #ffffff !important;
+}
+.tiny {
+  background-color: #45B29D;
+}
+.small {
+  background-color: #45B29D;
+}
+.medium {
+  background-color: #E27A3F;
+}
+.large {
+  background-color: #3498DB;
+}

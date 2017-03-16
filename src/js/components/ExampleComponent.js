@@ -11,44 +11,22 @@ class ExampleComponent extends Component {
 
     return (
       <div className='container'>
+        <h1 className='title'>Macrostrat Map Sources</h1>
         {data.map(d => {
           return (
             <div className='row source-row' key={d.properties.source_id}>
-              <div className='col s8'>
+              <div className='col s12 m8 l8'>
                 <h4>{d.properties.name}</h4>
+                <p>{d.properties.authors} ({d.properties.ref_year}). <i>{d.properties.ref_title}</i>. {d.properties.ref_source}. {d.properties.isbn_doi}. Retrieved from <a href={d.properties.url} target='_blank'>{d.properties.url}</a>. </p>
                 <table>
                   <tbody>
-                    <tr>
-                      <td><b>Publication</b></td>
-                      <td>{d.properties.ref_title}</td>
-                    </tr>
-                    <tr>
-                      <td><b>URL</b></td>
-                      <td><a href={d.properties.url} target='_blank'>{d.properties.url}</a></td>
-                    </tr>
-                    <tr>
-                      <td><b>Author(s)</b></td>
-                      <td>{d.properties.authors}</td>
-                    </tr>
-                    <tr>
-                      <td><b>Year</b></td>
-                      <td>{d.properties.ref_year}</td>
-                    </tr>
-                    <tr className={d.properties.ref_source ? '' : 'hide'}>
-                      <td><b>Source</b></td>
-                      <td>{d.properties.ref_source}</td>
-                    </tr>
-                    <tr className={d.properties.isbn_doi ? '' : 'hide'}>
-                      <td><b>ISBN/DOI</b></td>
-                      <td>{d.properties.isbn_doi}</td>
-                    </tr>
                     <tr>
                       <td><b>Source ID</b></td>
                       <td>{d.properties.source_id}</td>
                     </tr>
                     <tr>
                       <td><b>Scale</b></td>
-                      <td>{d.properties.scale}</td>
+                      <td><span className={"badge left scale-badge " + d.properties.scale}>{d.properties.scale}</span></td>
                     </tr>
                     <tr>
                       <td><b>Features</b></td>
@@ -57,7 +35,7 @@ class ExampleComponent extends Component {
                   </tbody>
                 </table>
               </div>
-              <div className='col s4'>
+              <div className='col s12 m4 l4'>
                 <SourceMap feature={d}/>
               </div>
             </div>
