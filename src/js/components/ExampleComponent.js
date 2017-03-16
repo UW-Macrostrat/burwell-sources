@@ -17,7 +17,7 @@ class ExampleComponent extends Component {
             <div className='row source-row' key={d.properties.source_id}>
               <div className='col s12 m8 l8'>
                 <h4>{d.properties.name}</h4>
-                <p>{d.properties.authors} ({d.properties.ref_year}). <i>{d.properties.ref_title}</i>. {d.properties.ref_source}. {d.properties.isbn_doi}. Retrieved from <a href={d.properties.url} target='_blank'>{d.properties.url}</a>. </p>
+                <p>{d.properties.authors} ({d.properties.ref_year}). <i>{d.properties.ref_title}</i>. <span className={d.properties.ref_source ? '' : 'hide'}>{d.properties.ref_source}.</span> <span className={d.properties.isbn_doi ? '' : 'hide'}>{d.properties.isbn_doi}.</span> Retrieved from <a href={d.properties.url} target='_blank'>{d.properties.url}</a>. </p>
                 <table>
                   <tbody>
                     <tr>
