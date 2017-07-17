@@ -1,25 +1,18 @@
 import { combineReducers } from 'redux'
-import { PAGE_CLICK, REQUEST_DATA, RECIEVE_DATA } from '../actions'
-
-// import all reducers here
-// const stats = (state = [], action) => {
-//   switch (action.type, state) {
-//     case TOGGLE_DICTIONARY:
-//       return Object.assign({}, state, {
-//         showDetails: action.dict_id
-//       })
-//
-//     default:
-//       return state
-//   }
-// }
-//
+import { PAGE_CLICK, REQUEST_DATA, RECIEVE_DATA, SELECT_SCALE, SELECT_FEATURES, ACTIVATE_FEATURE, TOGGLE_MENU, OPEN_OPTIONS, CLOSE_OPTIONS, CHANGE_VIEW } from '../actions'
 
 const handleInteraction = (state = {
   isFetching: false,
-  data: [],
   msg: '',
-  clicks: 0
+  clicks: 0,
+  maps: [],
+  selectedScale: 'large',
+  selectedFeatures: [],
+  activeFeature: {},
+  menuOpen: false,
+  optionsOpen: false,
+  optionsAnchorElement: {},
+  view: 'map'
 }, action) => {
 
   switch (action.type) {
@@ -35,7 +28,36 @@ const handleInteraction = (state = {
     case RECIEVE_DATA:
       return Object.assign({}, state, {
         isFetching: false,
-        data: action.data
+        maps: action.maps
+      })
+    case SELECT_SCALE:
+      return Object.assign({}, state, {
+        selectedScale: action.selectedScale
+      })
+    case SELECT_FEATURES:
+      return Object.assign({}, state, {
+        selectedFeatures: action.selectedFeatures
+      })
+    case ACTIVATE_FEATURE:
+      return Object.assign({}, state, {
+        activeFeature: action.activeFeature
+      })
+    case TOGGLE_MENU:
+      return Object.assign({}, state, {
+        menuOpen: action.menuOpen
+      })
+    case OPEN_OPTIONS:
+      return Object.assign({}, state, {
+        optionsOpen: true,
+        optionsAnchorElement: action.optionsAnchorElement
+      })
+    case CLOSE_OPTIONS:
+      return Object.assign({}, state, {
+        optionsOpen: false
+      })
+    case CHANGE_VIEW:
+      return Object.assign({}, state, {
+        view: action.view
       })
     default:
       return state

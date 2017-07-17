@@ -1,5 +1,13 @@
 import React, { Component, PropTypes } from 'react'
-import MainContainer from '../containers/MainContainer'
+import ContentConatiner from '../containers/ContentContainer'
+
+// Needed for onTouchTap
+import injectTapEventPlugin from 'react-tap-event-plugin'
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin()
+
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // Import other components
 
@@ -10,9 +18,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <MainContainer/>
-      </div>
+      <MuiThemeProvider>
+        <ContentConatiner/>
+      </MuiThemeProvider>
+
+
     )
   }
 }

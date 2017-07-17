@@ -2,16 +2,35 @@ import fetch from 'isomorphic-fetch'
 import { addCommas } from '../utils'
 
 // Define constants to be passed with actions
-export const PAGE_CLICK = 'PAGE_CLICK'
 export const RECIEVE_DATA = 'RECIEVE_DATA'
 export const REQUEST_DATA = 'REQUEST_DATA'
+export const SELECT_SCALE = 'SELECT_SCALE'
+export const SELECT_FEATURES = 'SELECT_FEATURES'
+export const ACTIVATE_FEATURE = 'ACTIVATE_FEATURE'
+export const TOGGLE_MENU = 'TOGGLE_MENU'
+export const OPEN_OPTIONS = 'OPEN_OPTIONS'
+export const CLOSE_OPTIONS = 'CLOSE_OPTIONS'
+export const CHANGE_VIEW = 'CHANGE_VIEW'
 
 // Define action functions
-export const pageClick = () => {
+export const selectScale = (scale) => {
   return {
-    type: PAGE_CLICK,
-    msg: 'You clicked on the page',
-    clicks: 0
+    type: SELECT_SCALE,
+    selectedScale: scale
+  }
+}
+
+export const activateFeature = (feature) => {
+  return {
+    type: ACTIVATE_FEATURE,
+    activeFeature: feature
+  }
+}
+
+export const selectFeatures = (features) => {
+  return {
+    type: SELECT_FEATURES,
+    selectedFeatures: features
   }
 }
 
@@ -24,7 +43,36 @@ export function requestData() {
 export function recieveData(json) {
   return {
     type: RECIEVE_DATA,
-    data: json
+    maps: json
+  }
+}
+
+export const toggleMenu = (open) => {
+  return {
+    type: TOGGLE_MENU,
+    menuOpen: open
+  }
+}
+
+export const openOptions = (el) => {
+  return {
+    type: OPEN_OPTIONS,
+    optionsOpen: true,
+    optionsAnchorElement: el
+  }
+}
+
+export const closeOptions = () => {
+  return {
+    type: CLOSE_OPTIONS,
+    optionsOpen: false
+  }
+}
+
+export const changeView = (view) => {
+  return {
+    type: CHANGE_VIEW,
+    view: view
   }
 }
 

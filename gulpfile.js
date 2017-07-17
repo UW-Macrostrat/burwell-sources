@@ -23,8 +23,8 @@ gulp.task('scripts', function () {
     bundleApp(false)
 })
 
-gulp.task('deploy', function (){
-	bundleApp(true)
+gulp.task('scripts-prod', function () {
+    bundleApp(true)
 })
 
 gulp.task('watch', function () {
@@ -33,7 +33,7 @@ gulp.task('watch', function () {
 })
 
 gulp.task('css', function() {
-  gulp.src(['src/css/styles.css'])
+  gulp.src(['src/css/skeleton.css', 'src/css/styles.css'])
     .pipe(concat('styles.css'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/css/'));
@@ -43,6 +43,8 @@ gulp.task('css', function() {
 // It will start watching for changes in every .js file.
 // If there's a change, the task 'scripts' defined above will fire.
 gulp.task('default', ['scripts', 'css', 'watch'])
+
+gulp.task('deploy', ['scripts-prod', 'css'])
 
 // Private Functions
 // ----------------------------------------------------------------------------
@@ -109,5 +111,4 @@ function bundleApp(isProduction) {
 	    .pipe(source('bundle.js'))
 	    .pipe(gulp.dest('./dist/js/'))
 	}
-
 }

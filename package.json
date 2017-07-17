@@ -10,10 +10,10 @@
   "author": "John J Czaplewski <john@czaplewski.org>",
   "license": "CC0-1.0",
   "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
+    "browserify": "^14.4.0",
     "gulp": "^3.9.1",
     "gulp-buffer": "0.0.2",
     "gulp-concat": "^2.6.1",
@@ -24,12 +24,15 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.16.0",
+    "babel-polyfill": "^6.23.0",
+    "install": "^0.10.1",
     "isomorphic-fetch": "^2.2.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-redux": "^4.4.6",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "material-ui": "^0.18.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   }
 }
