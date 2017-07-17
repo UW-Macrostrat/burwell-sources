@@ -19,3 +19,14 @@ export const getVisibleScale = (maps, filter) => {
       return []
   }
 }
+
+export const zoomMap = {
+  'tiny': 1,
+  'small': 5,
+  'medium': 7,
+  'large': 10
+}
+
+export const settings = {
+  uri: (window.location.hostname === 'localhost') ? 'https://dev.macrostrat.org' : window.location.origin
+}

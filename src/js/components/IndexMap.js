@@ -81,6 +81,7 @@ class IndexMap extends Component {
 
       let uniques = {}
       intersecting = intersecting.map(feature => {
+        feature.feature.properties.geometry = feature.feature.geometry
         return feature.feature.properties
       }).filter(feature => {
         if (!uniques[feature.source_id]) {

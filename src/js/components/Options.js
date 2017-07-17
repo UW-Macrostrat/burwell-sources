@@ -10,7 +10,7 @@ const Options = ({ optionsOpen, openOptions, closeOptions, optionsAnchorElement,
   <div>
     <FlatButton
       id='option-button'
-      onTouchTap={function(event) { openOptions(document.getElementById('option-button')) }}
+      onClick={() =>{ openOptions(document.getElementById('option-button')) }}
       label='Options'
     />
     <Popover

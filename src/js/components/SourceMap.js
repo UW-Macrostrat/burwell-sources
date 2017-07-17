@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { zoomMap } from '../utils'
 
 class SourceMap extends Component {
   constructor(props) {
@@ -6,12 +7,6 @@ class SourceMap extends Component {
   }
 
   componentDidMount() {
-    var zoomMap = {
-      'tiny': 1,
-      'small': 5,
-      'medium': 7,
-      'large': 10
-    }
     var map = this.map = L.map(`map-${this.props.feature.properties.source_id}`, {
       attributionControl: false,
       minZoom: 0,
