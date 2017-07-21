@@ -7,6 +7,8 @@ export const addCommas = x => {
 
 export const getVisibleScale = (maps, filter) => {
   switch (filter) {
+    case 'all':
+      return maps
     case 'large':
       return maps.filter(d => { if (d.properties.scale === 'large') return d })
     case 'medium':

@@ -6,7 +6,7 @@ const handleInteraction = (state = {
   msg: '',
   clicks: 0,
   maps: [],
-  selectedScale: 'large',
+  selectedScale: 'all',
   selectedFeatures: [],
   activeFeature: {},
   menuOpen: false,

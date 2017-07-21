@@ -35,6 +35,7 @@ const Options = ({ optionsOpen, openOptions, closeOptions, optionsAnchorElement,
           leftIcon={<ChevronLeft/>}
           value={selectedScale}
           menuItems={[
+            <MenuItem onClick={() => { selectScale('all') }} primaryText='All' value='all' rightIcon={selectedScale === 'all' ? <NavigationCheck/> : null} />,
             <MenuItem onClick={() => { selectScale('large') }} primaryText='Large' value='large' rightIcon={selectedScale === 'large' ? <NavigationCheck/> : null} />,
             <MenuItem onClick={() => { selectScale('medium') }} primaryText='Medium' value='medium' rightIcon={selectedScale === 'medium' ? <NavigationCheck/> : null}/>,
             <MenuItem onClick={() => { selectScale('small') }} primaryText='Small' value='small' rightIcon={selectedScale === 'small' ? <NavigationCheck/> : null}/>,
