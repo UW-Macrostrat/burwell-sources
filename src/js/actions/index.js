@@ -88,7 +88,7 @@ export const fetchData = () => {
     // Update state to know what is being fetched
     dispatch(requestData())
 
-    return fetch('https://dev.macrostrat.org/api/v2/defs/sources?all&format=geojson_bare')
+    return fetch('https://macrostrat.org/api/v2/defs/sources?all&format=geojson_bare')
       .then(response => response.json())
       .then(formatted => formatResponse(formatted))
       .then(json => dispatch(recieveData(json)))
