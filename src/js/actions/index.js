@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { addCommas } from '../utils'
+import { addCommas, settings } from '../utils'
 
 // Define constants to be passed with actions
 export const RECIEVE_DATA = 'RECIEVE_DATA'
@@ -88,7 +88,7 @@ export const fetchData = () => {
     // Update state to know what is being fetched
     dispatch(requestData())
 
-    return fetch('https://macrostrat.org/api/v2/defs/sources?all&format=geojson_bare')
+    return fetch(`${settings.uri}/api/v2/defs/sources?all&format=geojson_bare`)
       .then(response => response.json())
       .then(formatted => formatResponse(formatted))
       .then(json => dispatch(recieveData(json)))
